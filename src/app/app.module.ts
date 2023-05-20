@@ -8,11 +8,15 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { StressorsComponent } from './components/stressors/stressors.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { FormsModule } from '@angular/forms';
+import { NewStressComponent } from './components/stressors/new-stress/new-stress.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    StressorsComponent
+    StressorsComponent,
+    NewStressComponent
   ],
   imports: [
     BrowserModule,
@@ -22,6 +26,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatToolbarModule,
     MatTableModule,
     MatIconModule,
+    MatButtonModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
