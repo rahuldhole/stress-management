@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Stressors } from '../../Stressors';
+import { Stressors } from '../../models/Stressors';
 import { LocalStorageService } from '../../services/local-storage.service';
 
 @Component({
@@ -12,21 +12,14 @@ export class StressorsComponent {
   stressors: Stressors[] = [];
   dataSource = this.stressors;
 
-  constructor() {
-    this.stressors.push(new Stressors(1, 'Work', 'Work is stressful', false));
-    this.stressors.push(new Stressors(2, 'School', 'School is stressful', false));
-    this.stressors.push(new Stressors(3, 'Family', 'Family is stressful', false));
-    this.stressors.push(new Stressors(4, 'Friends', 'Friends are stressful', false));
-    this.stressors.push(new Stressors(5, 'Relationships', 'Relationships are stressful', false));
+  constructor(public LocalStorage: LocalStorageService) {
+    this.LocalStorage.get("stressors").then((data: any) => {
+      if (data !== undefined) {
+        this.stressors = data;
+        this.dataSource = this.stressors;
+      }
+    });
   }
-  // constructor(public LocalStorage: LocalStorageService) {
-  //   // this.LocalStorage.get("stressors").then((stressors: Stressors[]) => {
-  //   //   if (stressors) {
-  //   //     this.stressors = stressors;
-  //   //     this.dataSource = this.stressors;
-  //   //   }
-  //   // });
-  // }
 
   deleteStressor(id: number) {
     this.stressors = this.stressors.filter((stressor) => stressor.id !== id);
