@@ -8,10 +8,12 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
+import { StressorsComponent } from './stressors/stressors.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    StressorsComponent
   ],
   imports: [
     BrowserModule,
